@@ -10,36 +10,38 @@ use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // Aplicaremos políticas de seguridad aquí más adelante
+        // Verifica la regla 'viewAny' en PropertyPolicy
+        $this->authorize('viewAny', Property::class);
+
         return PropertyResource::collection(Property::all());
     }
 
     public function store(StorePropertyRequest $request)
     {
-        // El request ya ha sido validado por StorePropertyRequest
+        // Verifica la regla 'create' en PropertyPolicy
+        $this->authorize('create', Property::class);
+
         $property = Property::create($request->validated());
         return new PropertyResource($property);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Property $property)
     {
-        //
+        // Verifica la regla 'view' en PropertyPolicy para esta propiedad específica
+        $this->authorize('view', $property);
+
+        return new PropertyResource($property);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(StorePropertyRequest $request, Property $property)
     {
-        //
+        // Verifica la regla 'update' en PropertyPolicy para esta propiedad específica
+        $this->authorize('update', $property);
+
+        $property->update($request->validated());
+        return new PropertyResource($property);
     }
 
     /**

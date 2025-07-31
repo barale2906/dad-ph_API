@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\PropertyController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    // Rutas para gestionar Unidades Privadas
+    Route::apiResource('properties', PropertyController::class);
+
+    // Rutas para gestionar Propietarios y Residentes
+    Route::apiResource('users', UserController::class);
+
+    // Más rutas para proveedores, documentos, etc.
 });

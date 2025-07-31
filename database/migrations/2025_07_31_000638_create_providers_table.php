@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('providers', function (Blueprint $table) {
             $table->id();
-            $table->string('tower_block')->nullable(); // Torre o bloque
-            $table->string('unit_number'); // Número de apartamento/casa
-            $table->decimal('ownership_coefficient', 8, 5); // Coeficiente de copropiedad
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('providers');
     }
 };

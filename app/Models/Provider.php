@@ -14,5 +14,6 @@ class Provider extends Model
         'email',
         'phone',
         'address',
+        'status',
     ];
 }

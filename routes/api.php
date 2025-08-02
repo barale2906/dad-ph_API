@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\PropertyController;
+use App\Http\Controllers\Api\ProviderController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rutas para gestionar Documentos
     Route::apiResource('documents', DocumentController::class);
+
+    // Rutas para gestionar Proveedores
+    Route::apiResource('providers', ProviderController::class);
 
     // Más rutas para proveedores, documentos, etc.
 });

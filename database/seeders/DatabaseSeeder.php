@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Document;
 use App\Models\Property;
+use App\Models\Provider;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -42,5 +43,8 @@ class DatabaseSeeder extends Seeder
 
         // 4. Crear algunos documentos
         Document::factory()->count(10)->create();
+
+        // 5. Crear algunos proveedores
+        Provider::factory()->count(10)->create();
     }
 }

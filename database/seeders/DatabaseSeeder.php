@@ -42,9 +42,9 @@ class DatabaseSeeder extends Seeder
         Property::factory()->count(10)->create();
 
         // 4. Crear algunos documentos
-        Document::factory()->count(10)->create();
+        Document::factory()->count(20)->create();
 
         // 5. Crear algunos proveedores
-        Provider::factory()->count(10)->create();
+        Provider::factory()->count(15)->create();
     }
 }

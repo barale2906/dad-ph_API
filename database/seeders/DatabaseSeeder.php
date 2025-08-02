@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Document;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -38,5 +39,8 @@ class DatabaseSeeder extends Seeder
 
         // 3. Crear algunas propiedades
         Property::factory()->count(10)->create();
+
+        // 4. Crear algunos documentos
+        Document::factory()->count(10)->create();
     }
 }

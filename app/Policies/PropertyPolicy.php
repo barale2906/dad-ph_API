@@ -24,7 +24,8 @@ class PropertyPolicy
     // Un usuario puede ver una propiedad si es admin o si está asociado a ella
     public function view(User $user, Property $property): bool
     {
-        if ($user->role === 'admin') {
+        // Permite ver la propiedad si el usuario tiene uno de los roles administrativos
+        if (in_array($user->role, ['admin', 'superusuario'])) {
             return true;
         }
         // Verifica si el id del usuario está en la colección de usuarios de la propiedad
@@ -68,9 +69,10 @@ class PropertyPolicy
 
     /**
      * Determine whether the user can permanently delete the model.
+     */
 
     public function forceDelete(User $user, Property $property): bool
     {
-
-    } */
+        return in_array($user->role, ['admin', 'superusuario']);
+    }
 }

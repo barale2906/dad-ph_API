@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CorrespondenciaController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\PropertyController;
 use App\Http\Controllers\Api\ProviderController;
@@ -34,6 +35,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rutas para gestionar Proveedores
     Route::apiResource('providers', ProviderController::class);
+
+    // Rutas para gestionar Proveedores
+    Route::apiResource('correspondencias', CorrespondenciaController::class);
 
     // Más rutas para proveedores, documentos, etc.
 });

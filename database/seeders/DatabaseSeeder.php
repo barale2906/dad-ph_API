@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Correspondencia;
 use App\Models\Document;
 use App\Models\Property;
 use App\Models\Provider;
@@ -46,5 +47,8 @@ class DatabaseSeeder extends Seeder
 
         // 5. Crear algunos proveedores
         Provider::factory()->count(15)->create();
+
+        // 6. Crear Correspondencias
+        Correspondencia::factory()->count(19)->create();
     }
 }

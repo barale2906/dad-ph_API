@@ -22,6 +22,11 @@ class Property extends Model
         return $this->hasMany(Correspondencia::class);
     }
 
+    public function censos(): HasMany
+    {
+        return $this->hasMany(Censo::class);
+    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withPivot('relationship_type')->withTimestamps();

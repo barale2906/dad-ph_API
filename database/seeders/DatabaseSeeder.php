@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Censo;
 use App\Models\Correspondencia;
 use App\Models\Document;
 use App\Models\Property;
@@ -50,5 +51,8 @@ class DatabaseSeeder extends Seeder
 
         // 6. Crear Correspondencias
         Correspondencia::factory()->count(19)->create();
+
+        //7. Crear censos
+        Censo::factory()->count(98)->create();
     }
 }
